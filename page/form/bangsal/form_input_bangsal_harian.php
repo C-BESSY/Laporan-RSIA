@@ -8,9 +8,11 @@
 <body>
     <center>
         <h2>INPUT DATA BANGSAL HARIAN</h2>
-        <form action="insert_data.php" method="post">
+        <form action="../insert_data.php" method="post">
             <label for="tanggal">Tanggal:</label>
             <input type="date" id="tanggal" name="tanggal"><br><br>
+            <label for="rm_pasien">Rekam Medis:</label>
+            <input type="text" name="rm_pasien" id="rm_pasien" placeholder="Masukkan Nomor Rekam Medik" required><br><br>
             <label for="tindakan">Tindakan:</label>
             <select name="tindakan" id="tindakan">
                 <option value="ranapbpjs">Ranap BPJS</option>
@@ -24,6 +26,7 @@
                 <option value="rujuk">Rujuk</option>
                 <option value="meninggal">Meninggal</option>
             </select><br><br>
+            <a href="../../laporan_bangsal.php"><button type="button">Kembali</button></a>
             <input type="submit" value="Sumbit">
             <input type="hidden" name="process_type" value="bangsal_harian">
         </form>

@@ -6,13 +6,15 @@
 <body>
     <center>
         <H2>INPUT DATA PERINA</H2>
-        <form action="insert_data.php" method="post">
+        <form action="../insert_data.php" method="post">
             <label for="tanggal">Tanggal:</label>
             <input type="date" name="tanggal" id="tanggal" required><br><br>
+            <label for="rm_pasien">Rekam Medis:</label>
+            <input type="text" name="rm_pasien" id="rm_pasien" placeholder="Masukkan Nomor Rekam Medik" required><br><br>
             <label for="nama_tindakan">Nama Tindakan:</label>
             <select name="nama_tindakan" id="nama_tindakan">
                 <?php
-                    include "db.php";
+                    include "../../../db.php";
                     $query = "SHOW COLUMNS FROM perina LIKE 'Nama_Tindakan'";
                     $stmt = $conn->query($query);
                     $column_info = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -34,7 +36,7 @@
                 <option value="Umum">Umum</option>
                 <option value="BPJS">BPJS</option>
             </select required><br><br>
-            <a href="index.php"><button type="button">Kembali</button></a>
+            <a href="../../laporan_perina.php"><button type="button">Kembali</button></a>
             <input type="submit" value="Submit">
             <input type="hidden" name="process_type" value="perina">
         </form>

@@ -6,13 +6,13 @@
 <body>
     <center>
         <h2>INPUT LAPORAN</h2>
-        <form action="insert_data.php" method="post">
+        <form action="../insert_data.php" method="post">
             <label for="tanggal">Tanggal:</label>
             <input type="date" name="tanggal" id="tanggal" required><br><br>
             <label for="nama_tindakan">Nama Tindakan:</label>
             <select name="nama_tindakan" id="nama_tindakan">
                 <?php
-                include "db.php";
+                include "../../../db.php";
                 $query = "SELECT DISTINCT Nama_Tindakan FROM VK";
                 $stmt = $conn->query($query);
                 $tindakan_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -29,7 +29,7 @@
                 <option value="Umum">Umum</option>
                 <option value="BPJS">BPJS</option>
             </select><br><br>
-            <a href="index.php"><button type="button">Kembali</button></a>
+            <a href="../../laporan_umum.php"><button type="button">Kembali</button></a>
             <input type="submit" value="Submit">
             <input type="hidden" name="process_type" value="vk">
         </form>
