@@ -9,6 +9,8 @@
         <form action="../insert_data.php" method="post">
             <label for="tanggal">Tanggal:</label>
             <input type="date" name="tanggal" id="tanggal" required><br><br>
+            <label for="rm_pasien">Rekam Medis:</label>
+            <input type="text" name="rm_pasien" id="rm_pasien" placeholder="Masukkan Nomor Rekam Medik" required><br><br>
             <label for="nama_tindakan">Nama Tindakan:</label>
             <select name="nama_tindakan" id="nama_tindakan">
                 <?php
@@ -22,8 +24,6 @@
                 }
                 ?>
             </select required><br><br>
-            <label for="rm_pasien">Rekam Medis:</label>
-            <input type="text" name="rm_pasien" id="rm_pasien" placeholder="Masukkan Nomor Rekam Medik" required><br><br>
             <label for="jenis_bayar">Jenis Bayar:</label>
             <select name="jenis_bayar" id="jenis_bayar">
                 <option value="Umum">Umum</option>

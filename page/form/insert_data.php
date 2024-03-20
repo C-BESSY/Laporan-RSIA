@@ -6,24 +6,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($process_type === "vk") {
         $tanggal = $_POST["tanggal"];
-        $nama_tindakan = $_POST["nama_tindakan"];
         $rm_pasien = $_POST["rm_pasien"];
+        $nama_tindakan = $_POST["nama_tindakan"];
         $jenis_bayar = $_POST["jenis_bayar"];
 
         try {
-            $query = "INSERT INTO VK(Tanggal, Nama_Tindakan, RM_Pasien, Jenis_Bayar)
-                        VALUE (:tanggal, :rm_pasien, :nama_tindakan, :rm_pasien, :jenis_bayar)";
+            $query = "INSERT INTO VK(Tanggal, Nama_Tindakan, RM_Pasien, Jenis_Bayar) 
+                        VALUES (:tanggal, :nama_tindakan, :rm_pasien, :jenis_bayar)";
+
             $stmt = $conn->prepare($query);
             $stmt->bindParam(":tanggal", $tanggal);
-            $stmt->bindParam(":nama_tindakan", $nama_tindakan);
             $stmt->bindParam(":rm_pasien", $rm_pasien);
+            $stmt->bindParam(":nama_tindakan", $nama_tindakan);
             $stmt->bindParam(":jenis_bayar", $jenis_bayar);
             $stmt->execute();
 
             header("Location: ./../laporan_umum.php?status=success");
             exit();
         } catch (PDOException $e) {
-            header("Location: ./umum/form_input.php?status=error&message=" . urlencode($e->getMessage()));
+            header("Location: ./umum/form_input.php?status=error&message=Gagal menambahkan data!");
             exit();
         }
     } elseif ($process_type === "perina") {
@@ -186,9 +187,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $jenis_bayar_utama = $_POST["jenis_bayar_utama"];
         $tindakan_utama = $_POST["tindakan_utama"];
         $dehisensi = $_POST["dehisensi"];
-        
+
         try {
-            $query = "INSERT INTO tindakan_ok (Tanggal, RM_Pasien, TindakanUtama, JenisBayarUtama, Dehisensi) 
+            $query = "INSERT INTO tindakan_ok (Tanggal, RM_Pasien, TindakanUtama, JenisBayarUtama, Dehisensi)
                       VALUES (:tanggal, :rm_pasien, :tindakan_utama, :jenis_bayar_utama, :dehisensi)";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(":tanggal", $tanggal);
@@ -197,15 +198,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bindParam(":jenis_bayar_utama", $jenis_bayar_utama);
             $stmt->bindParam(":dehisensi", $dehisensi);
             $stmt->execute();
-    
+
             header("Location: ../laporan_tindakan_ok.php?status=success");
             exit();
-        } catch(PDOException $e){
+        } catch (PDOException $e) {
             header("Location: ../form_input_tindakan.php?status=error&message=" . urlencode($e->getMessage()));
             exit();
         }
-    }
-    else {
+    } else {
         echo "Invalid process type!";
         exit();
     }
