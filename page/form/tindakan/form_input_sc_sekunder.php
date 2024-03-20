@@ -17,12 +17,14 @@
 
             <label for="jenis_bayar_utama">Jenis Bayar SC:</label>
             <select name="jenis_bayar_utama" id="jenis_bayar_utama" required>
+                <option value="" selected disabled hidden>None</option>
                 <option value="BPJS">BPJS</option>
                 <option value="Umum">Umum</option>
             </select><br><br>
-            
+
             <label for="tindakan_sekunder">Tindakan Sekunder:</label>
             <select name="tindakan_sekunder" id="tindakan_sekunder" required>
+                <option value="" selected disabled hidden>Pilih</option>
                 <option value="MOW">MOW</option>
                 <option value="HISTERECTOMI">HISTERECTOMI</option>
             </select><br><br>
@@ -30,6 +32,7 @@
 
             <label for="jenis_bayar_sekunder">Jenis Bayar Sekunder:</label>
             <select name="jenis_bayar_sekunder" id="jenis_bayar_sekunder" required>
+                <option value="" selected disabled hidden>None</option>
                 <option value="BPJS">BPJS</option>
                 <option value="Umum">Umum</option>
             </select><br><br>

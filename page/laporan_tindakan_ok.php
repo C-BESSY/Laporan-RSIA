@@ -35,6 +35,7 @@ for ($tahun = 2010; $tahun <= $tahun_sekarang; $tahun++) {
         </form><br>
     </center>
 
+    <a href="view/tindakan/view_tindakan_pasien.php"><button>Lihat Detail Pasien</button></a><br><br>
     <a href="form/tindakan/form_input_sc.php"><button>Input Tindakan SC</button></a>
     <?php
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["tahun"])) {

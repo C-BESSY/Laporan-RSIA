@@ -35,6 +35,7 @@
         </form><br>
     </center>
 
+    <a href="view/umum/view_umum_pasien.php"><button>Detail Pasien</button></a>
     <a href="./form/umum/form_input.php"><button>Input Data</button></a>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['tahun'])) {
